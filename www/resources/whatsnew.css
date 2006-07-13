@@ -1,0 +1,96 @@
+/* CSS Document */
+
+body {
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", geneva, verdana, sans-serif;
+	font-size: 12px;
+	color: #666666;
+	line-height: 1.5em;
+	margin: 10px;
+}
+a {
+	color: #336699;
+	text-decoration: none;
+}
+a:hover {
+	color: #0066FF;
+	text-decoration: underline;
+}
+#toolbox_hidden {
+	background-color: #e4ebff;
+	background-image: url(images/title_bg.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #b6bdcc;
+	padding: 5px;
+	width: 10px;
+ 	position: absolute;
+	z-index: auto;
+	left: 10px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+}
+#toolbox {
+	background-color: #e4ebff;
+	border: 1px solid #b6bdcc;
+	width: 230px;
+}
+#toolbox .title {
+	background-image: url(title_bg.gif);
+	background-repeat: repeat-x;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #666666;
+	border-bottom: 1px solid #b6bdcc;
+}
+#toolbox .contents {
+	background-image: url(contents_bg.gif);
+	background-repeat: repeat-x;
+	padding: 10px;
+}
+#toolbox .date {
+	font-size: 10px;
+	color: #999999;
+}
+.show-hide-icon_link {
+	text-decoration: none;
+}
+/* MKTREE Script Related below */
+
+ul.mktree li {
+	list-style: none;
+} 
+
+ul.mktree, ul.mktree ul , ul.mktree li {
+	margin-left:5px;
+}
+
+ul.mktree li .bullet {
+	padding-left: 15px;
+}
+
+ul.mktree li.liOpen .bullet {
+	cursor: pointer;
+	background: url(ico_collapse.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+ul.mktree li.liClosed .bullet {
+	cursor: pointer;
+	background: url(ico_expand.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+ul.mktree li.liBullet .bullet {
+	cursor: default; background: url(/resources/acs-templating/bullet.gif) center left no-repeat;
+}
+
+ul.mktree li.liOpen ul {
+	display: block;
+}
+	
+ul.mktree li.liClosed ul {
+	display: none;
+}
