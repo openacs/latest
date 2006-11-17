@@ -8,8 +8,8 @@ ad_proc -public latest::forums {
     Gets all the forums from X time to now.
 } {
 
-    set limit [parameter::get -parameter LinksPerApplication]
 
+    set limit [parameter::get_from_package_key -parameter LinksPerApplication -package_key "latest"]
     db_multirow -upvar_level 1 forums forums_select "
     select o.title, o.object_id, t.pretty_name as object_type, to_char(o.last_modified, 'MM-DD-YYYY') as last_modified
     from acs_object_types t, acs_objects o
@@ -25,7 +25,8 @@ ad_proc -public latest::fs {
     Gets all the file storage objects from X time to now.
 } {
 
-    set limit [parameter::get -parameter LinksPerApplication]
+
+    set limit [parameter::get_from_package_key -parameter LinksPerApplication -package_key "latest"]
 
     db_multirow -upvar_level 1 fs fs_select "
     select o.title, o.object_id, t.pretty_name as object_type, to_char(o.last_modified, 'MM-DD-YYYY') as last_modified
@@ -44,8 +45,8 @@ ad_proc -public latest::asm {
 } {
 
     set user_id [ad_conn user_id]
-    set limit [parameter::get -parameter LinksPerApplication]
 
+    set limit [parameter::get_from_package_key -parameter LinksPerApplication -package_key "latest"]
     set old_comm_node_id 0
     db_multirow -upvar_level 1 -extend { assessment_url } assessment_sessions answered_assessments "
 	select cr.item_id as assessment_id, cr.title, a.password,
@@ -93,7 +94,8 @@ ad_proc -public latest::lors {
 } {
 
     set user_id [ad_conn user_id]
-    set limit [parameter::get -parameter LinksPerApplication]
+
+    set limit [parameter::get_from_package_key -parameter LinksPerApplication -package_key "latest"]
 
     db_multirow -upvar_level 1 -extend { course_url } \
 	d_courses select_d_courses "
