@@ -5,6 +5,9 @@ ad_page_contract {
     @creation-date 24-03-2006
 
 } {
+{ itemId "" }
+{ object "" }
+{ newURL ""}
 } -properties {
 } -validate {
 } -errors {
@@ -55,6 +58,11 @@ if {![llength $packages] == 0 } {
     latest::forums -pkgs_ids $pkgs_ids
     latest::fs -pkgs_ids $pkgs_ids
     latest::asm -pkgs_ids $pkgs_ids
-    latest::lors -pkgs_ids $pkgs_ids
+
+  # check is lors is installed, if its not, then do nothing.
+  set is_lors [db_0or1row check_lors "select package_key, pretty_name, installed_p from apm_package_version_info where package_key = 'lors'"]
+
+    if {$is_lors == 1} {
+	latest::lors -pkgs_ids $pkgs_ids }
 }
 
