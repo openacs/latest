@@ -39,9 +39,9 @@ set communities_list [db_list communities_all_select  "
 "]
 
 
-set packages_names {}
-set objects {}
-set packages  {}
+set packages_names [list]
+set objects [list]
+set packages  [list]
 
 foreach community $communities_list {
     set snode [site_node::get_node_id_from_object_id -object_id $community]
